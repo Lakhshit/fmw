@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /weblogic-26/
+Disallow: /files/
+Disallow: /data/

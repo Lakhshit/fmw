@@ -1,0 +1,18 @@
+{
+ "v": 1,
+ "iter": 600000,
+ "hours": 12,
+ "dummySalt": "HDEEwB798ugttDJlJrlI3g==",
+ "users": {
+  "2d2586be4846a3eddd2cf7d4c6a135ca1427ad35679b476472d12862f900935d": {
+   "salt": "pEB3MqRB/IUrvgdoup1nEA==",
+   "iv": "Pwh42ExkATKDLZ9S",
+   "ct": "a1qeQ1MAzCh1Pxv9XKViz99F5Ahp2sKfplp44GDzPxcNY3IbbUMk3eCyguuWJd7j+rIYazztpeZEt9/GOIPvfQY4pN8zxRk3d9R7ac+GEIgOApMgQufakC33mfsKbIUxW8mpR4nM+lYCA9LXW1T+Is5qH34M/CR4OJsRQIbYVZvMhycPJKAi"
+  },
+  "9bbabe310ce18a743c239a29eb9fdaf8b7a7f2565512a506e0645b24520a7ae5": {
+   "salt": "2MKrNdJROIxPfjTVJvhTCA==",
+   "iv": "7gUwbJqCVDKRT2ej",
+   "ct": "Tp+6T0aT6lYWLik99jDR6/j1//YqOHcskzWhOmbYs9sy2PGr02qChSe4P+HYR2uSfDvkZix/9BeIDUSz6RCzJLwFfMLRSsR/UN0vQiT/exCd6ddF"
+  }
+ }
+}
