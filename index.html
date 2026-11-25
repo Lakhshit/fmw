@@ -81,6 +81,16 @@
   .step h3{margin:12px 0 6px;font-size:1.15rem;color:#fff}
   .step p{margin:0;color:var(--muted)}
   .toplinks{display:flex;gap:26px;margin-left:auto;margin-right:22px}
+  .tdd{position:relative}
+  .tdd>a::after{content:"";display:inline-block;width:6px;height:6px;border-right:1.7px solid currentColor;border-bottom:1.7px solid currentColor;transform:rotate(45deg) translateY(-3px);margin-left:8px;opacity:.7}
+  .tsub{position:absolute;top:calc(100% + 12px);left:-14px;min-width:270px;background:#211C1A;border:1px solid #3A3330;border-radius:14px;padding:8px;box-shadow:0 24px 60px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(6px);transition:.15s;z-index:30}
+  .tsub::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+  .tdd:hover .tsub,.tdd:focus-within .tsub{opacity:1;visibility:visible;transform:none}
+  .tsub a{display:block;padding:9px 12px;border-radius:9px;text-decoration:none}
+  .tsub a:hover{background:#2E2724}
+  .tsub b{display:block;color:#fff;font-size:.95rem}
+  .tsub span{color:#B9AFA9;font-size:.85rem}
+  .toplinks{align-items:center}
   .toplinks a{color:#D9D2CD;text-decoration:none;font-size:.95rem}
   .toplinks a:hover{color:#fff}
   @media (max-width:700px){.toplinks{display:none}}
@@ -131,7 +141,17 @@
       <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="14" fill="#C74634"/><g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 20 L32 11 L50 20 L32 29 Z"/><path d="M14 32 L32 41 L50 32"/><path d="M14 44 L32 53 L50 44"/></g></svg>
       <span><b>FMW Hub</b><small>LAKHSHIT.IN</small></span>
     </a>
-    <nav class="toplinks"><a href="#briefings">Briefings</a><a href="#ai">FMW &times; AI</a><a href="/ai-lab/">AI Lab</a><a href="#" data-slack>Slack</a></nav>
+    <nav class="toplinks">
+      <div class="tdd"><a href="#briefings">Briefings</a>
+        <div class="tsub">
+          <a href="/weblogic-26/"><b>WebLogic 26</b><span>What's new, upgrade, OCI setup</span></a>
+          <a href="/containers/"><b>Containers &amp; OKE</b><span>WKO, WDT, WIT, OKE</span></a>
+          <a href="/pca/"><b>Private Cloud Appliance</b><span>OCI-compatible, on-premises</span></a>
+          <a href="/cloud/"><b>Cloud &amp; multicloud</b><span>Landing zones, tools, dates</span></a>
+          <a href="/ai-lab/"><b>AI Lab</b><span>Live demos and prototypes</span></a>
+        </div>
+      </div>
+      <a href="#ai">FMW &times; AI</a><a href="/ai-lab/#try">Live demos</a><a href="#" data-slack>Slack</a></nav>
     <a class="btn ghost small" href="/login.html">Sign in</a>
   </div></header>
 
@@ -155,79 +175,153 @@
     </div>
 
     <!-- Illustration: a middleware stack on the cloud -->
-    <svg class="art" viewBox="0 0 560 540" role="img" aria-label="Illustration of a middleware platform: a cloud, a load balancer, a server cluster, a data grid and the runtime layers beneath">
-      <defs>
-        <linearGradient id="plate" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2E2724"/><stop offset="1" stop-color="#211C1A"/></linearGradient>
-        <linearGradient id="srv" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#342C29"/><stop offset="1" stop-color="#262120"/></linearGradient>
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
-      </defs>
+    <svg class="art" id="heroArt" viewBox="0 0 600 560" style="overflow:visible" role="img" aria-label="Animated illustration: multicloud, a load balancer sending traffic to a WebLogic cluster, an AI services node, a Coherence data grid with vectors, and the Jakarta EE and JDK runtime layers">
+  <defs>
+    <radialGradient id="gR" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#C74634" stop-opacity=".38"/><stop offset="1" stop-color="#C74634" stop-opacity="0"/></radialGradient>
+    <radialGradient id="gT" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#3FA19C" stop-opacity=".30"/><stop offset="1" stop-color="#3FA19C" stop-opacity="0"/></radialGradient>
+    <linearGradient id="srv" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#352D2A"/><stop offset="1" stop-color="#241F1D"/></linearGradient>
+    <linearGradient id="plate" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2E2724"/><stop offset="1" stop-color="#1E1A18"/></linearGradient>
+    <linearGradient id="lb" x1="0" x2="1"><stop offset="0" stop-color="#D65441"/><stop offset="1" stop-color="#B03B2B"/></linearGradient>
+    <linearGradient id="ai" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#1E3B39"/><stop offset="1" stop-color="#162826"/></linearGradient>
+    <filter id="blur6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+    <path id="pCloud" d="M300 126 V150"/>
+    <path id="pS1" d="M300 196 C300 222 130 220 130 255"/>
+    <path id="pS2" d="M300 196 V255"/>
+    <path id="pS3" d="M300 196 C300 222 470 220 470 255"/>
+    <path id="pAI" d="M500 198 C505 300 470 360 430 396"/>
+    <path id="pAIc" d="M455 112 C420 90 390 84 372 86"/>
+    <path id="orbitP" d="M210 80 a90 26 0 1 0 180 0 a90 26 0 1 0 -180 0"/>
+  </defs>
 
-      <!-- cloud -->
-      <g transform="translate(150 18)">
-        <path d="M70 70 h120 a34 34 0 0 0 0-68 a46 46 0 0 0-86-10 a36 36 0 0 0-34 78z" transform="translate(0 4)" fill="none" stroke="#5A514D" stroke-width="2"/>
-        <text x="130" y="58" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="15" font-weight="700" fill="#E9E4E0" letter-spacing="1.5">CLOUD</text>
+  <!-- glows -->
+  <circle cx="430" cy="140" r="170" fill="url(#gR)"/>
+  <circle cx="150" cy="430" r="150" fill="url(#gT)"/>
+
+  <!-- cloud with orbit -->
+  <use href="#orbitP" fill="none" stroke="#5A514D" stroke-dasharray="2 6"/>
+  <g>
+    <g fill="#4F4643"><circle cx="262" cy="92" r="32"/><circle cx="302" cy="70" r="42"/><circle cx="346" cy="90" r="34"/><rect x="228" y="88" width="154" height="38" rx="19"/></g>
+    <g fill="#231E1C"><circle cx="262" cy="92" r="30"/><circle cx="302" cy="70" r="40"/><circle cx="346" cy="90" r="32"/><rect x="230" y="90" width="150" height="34" rx="17"/></g>
+    <text x="304" y="102" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="13" font-weight="700" fill="#E9E4E0" letter-spacing="2">MULTICLOUD</text>
+    <text x="304" y="118" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="10.5" fill="#9C928C" letter-spacing="1">OCI · PCA · AZURE</text>
+  </g>
+  <circle r="5" fill="#E8735F"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#orbitP"/></animateMotion></circle>
+  <circle r="4" fill="#7CC7C2"><animateMotion dur="9s" begin="-4.5s" repeatCount="indefinite"><mpath href="#orbitP"/></animateMotion></circle>
+
+  <!-- AI services node -->
+  <g>
+    <circle cx="500" cy="150" r="58" fill="#3FA19C" opacity=".12" filter="url(#blur6)"/>
+    <polygon points="500,100 543,125 543,175 500,200 457,175 457,125" fill="url(#ai)" stroke="#3FA19C" stroke-width="2"/>
+    <g stroke="#7CC7C2" stroke-width="1.2" opacity=".8">
+      <path d="M478 132 L500 124 M478 132 L500 150 M478 132 L500 176 M478 168 L500 124 M478 168 L500 150 M478 168 L500 176 M500 124 L522 150 M500 150 L522 150 M500 176 L522 150"/>
+    </g>
+    <g fill="#7CC7C2"><circle cx="478" cy="132" r="4"/><circle cx="478" cy="168" r="4"/><circle class="pulse" cx="500" cy="124" r="4"/><circle class="pulse d2" cx="500" cy="150" r="4"/><circle class="pulse d3" cx="500" cy="176" r="4"/></g>
+    <circle cx="522" cy="150" r="6" fill="#E8735F"><animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/></circle>
+    <text x="500" y="222" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="11" font-weight="700" fill="#BFE3E0" letter-spacing="1.5">AI SERVICES</text>
+  </g>
+  <use href="#pAIc" fill="none" stroke="#3FA19C" stroke-width="1.6" stroke-dasharray="3 5" opacity=".7"/>
+  <use href="#pAI" fill="none" stroke="#3FA19C" stroke-width="1.6" stroke-dasharray="3 5" opacity=".7"/>
+  <circle r="4" fill="#7CC7C2"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#pAI"/></animateMotion></circle>
+  <circle r="3.5" fill="#7CC7C2"><animateMotion dur="2s" begin="-1s" repeatCount="indefinite"><mpath href="#pAIc"/></animateMotion></circle>
+
+  <!-- cloud to load balancer -->
+  <use href="#pCloud" stroke="#E8735F" stroke-width="2" stroke-dasharray="4 5"/>
+  <circle r="4" fill="#FFD3C9"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#pCloud"/></animateMotion></circle>
+
+  <!-- load balancer -->
+  <g>
+    <rect x="222" y="150" width="156" height="46" rx="23" fill="url(#lb)"/>
+    <rect x="222" y="150" width="156" height="46" rx="23" fill="none" stroke="#FFB4A6" stroke-opacity=".5">
+      <animate attributeName="stroke-opacity" values=".1;.7;.1" dur="2.4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="300" y="179" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="15" font-weight="700" fill="#fff">Load balancer</text>
+  </g>
+
+  <!-- traffic to servers -->
+  <g fill="none" stroke="#E8735F" stroke-width="1.8" stroke-dasharray="4 6" opacity=".8">
+    <use href="#pS1"/><use href="#pS2"/><use href="#pS3"/>
+  </g>
+  <g fill="#FFD3C9">
+    <circle r="4"><animateMotion dur="1.8s" repeatCount="indefinite"><mpath href="#pS1"/></animateMotion></circle>
+    <circle r="4"><animateMotion dur="1.8s" begin="-.6s" repeatCount="indefinite"><mpath href="#pS2"/></animateMotion></circle>
+    <circle r="4"><animateMotion dur="1.8s" begin="-1.2s" repeatCount="indefinite"><mpath href="#pS3"/></animateMotion></circle>
+  </g>
+
+  <!-- cluster -->
+  <rect x="44" y="236" width="512" height="134" rx="18" fill="#C74634" fill-opacity=".03" stroke="#4A423F" stroke-dasharray="4 6"/>
+  <text x="540" y="364" text-anchor="end" font-family="Calibri, Segoe UI, Arial" font-size="10.5" fill="#9C928C" letter-spacing="1.5">WEBLOGIC CLUSTER</text>
+  <g font-family="Calibri, Segoe UI, Arial">
+    <g transform="translate(65 262)">
+      <rect width="130" height="88" rx="12" fill="url(#srv)" stroke="#4F4643"/>
+      <circle class="pulse" cx="112" cy="16" r="5" fill="#3FA19C"/>
+      <text x="14" y="21" font-size="12" font-weight="700" fill="#fff">Server 1</text>
+      <g fill="#E8735F" opacity=".85">
+        <rect x="14" y="40" width="10" height="30"><animate attributeName="height" values="30;14;26;30" dur="2.2s" repeatCount="indefinite"/><animate attributeName="y" values="40;56;44;40" dur="2.2s" repeatCount="indefinite"/></rect>
+        <rect x="30" y="50" width="10" height="20"><animate attributeName="height" values="20;32;18;20" dur="1.9s" repeatCount="indefinite"/><animate attributeName="y" values="50;38;52;50" dur="1.9s" repeatCount="indefinite"/></rect>
+        <rect x="46" y="44" width="10" height="26"><animate attributeName="height" values="26;12;30;26" dur="2.5s" repeatCount="indefinite"/><animate attributeName="y" values="44;58;40;44" dur="2.5s" repeatCount="indefinite"/></rect>
       </g>
-
-      <!-- cloud to LB -->
-      <path class="flow" d="M280 96 V132" stroke="#E8735F" stroke-width="2.5" fill="none"/>
-
-      <!-- load balancer -->
-      <g transform="translate(205 132)">
-        <rect width="150" height="44" rx="22" fill="#C74634"/>
-        <text x="75" y="28" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="15" font-weight="700" fill="#fff">Load balancer</text>
+      <text x="66" y="66" font-size="10.5" fill="#B9AFA9">JDK 25</text>
+    </g>
+    <g transform="translate(235 262)">
+      <rect width="130" height="88" rx="12" fill="url(#srv)" stroke="#4F4643"/>
+      <circle class="pulse d2" cx="112" cy="16" r="5" fill="#3FA19C"/>
+      <text x="14" y="21" font-size="12" font-weight="700" fill="#fff">Server 2</text>
+      <g fill="#E8735F" opacity=".85">
+        <rect x="14" y="48" width="10" height="22"><animate attributeName="height" values="22;34;16;22" dur="2s" repeatCount="indefinite"/><animate attributeName="y" values="48;36;54;48" dur="2s" repeatCount="indefinite"/></rect>
+        <rect x="30" y="40" width="10" height="30"><animate attributeName="height" values="30;18;28;30" dur="2.4s" repeatCount="indefinite"/><animate attributeName="y" values="40;52;42;40" dur="2.4s" repeatCount="indefinite"/></rect>
+        <rect x="46" y="54" width="10" height="16"><animate attributeName="height" values="16;30;22;16" dur="1.7s" repeatCount="indefinite"/><animate attributeName="y" values="54;40;48;54" dur="1.7s" repeatCount="indefinite"/></rect>
       </g>
-
-      <!-- LB to servers -->
-      <path class="flow" d="M280 176 C280 200 120 196 120 226" stroke="#E8735F" stroke-width="2.2" fill="none"/>
-      <path class="flow" d="M280 176 V226" stroke="#E8735F" stroke-width="2.2" fill="none"/>
-      <path class="flow" d="M280 176 C280 200 440 196 440 226" stroke="#E8735F" stroke-width="2.2" fill="none"/>
-
-      <!-- server cluster -->
-      <g font-family="Calibri, Segoe UI, Arial">
-        <rect x="40" y="208" width="480" height="132" rx="18" fill="none" stroke="#4A423F" stroke-dasharray="4 6"/>
-        <text x="58" y="232" font-size="12" fill="#9C928C" letter-spacing="1.5">CLUSTER</text>
-        <g transform="translate(62 240)">
-          <rect width="116" height="82" rx="12" fill="url(#srv)" stroke="#4F4643"/>
-          <rect x="14" y="16" width="62" height="7" rx="3.5" fill="#5A514D"/><rect x="14" y="30" width="44" height="7" rx="3.5" fill="#5A514D"/>
-          <circle class="pulse" cx="96" cy="20" r="5" fill="#3FA19C"/>
-          <text x="58" y="66" text-anchor="middle" font-size="13" fill="#E9E4E0">Server 1</text>
-        </g>
-        <g transform="translate(222 240)">
-          <rect width="116" height="82" rx="12" fill="url(#srv)" stroke="#4F4643"/>
-          <rect x="14" y="16" width="62" height="7" rx="3.5" fill="#5A514D"/><rect x="14" y="30" width="44" height="7" rx="3.5" fill="#5A514D"/>
-          <circle class="pulse d2" cx="96" cy="20" r="5" fill="#3FA19C"/>
-          <text x="58" y="66" text-anchor="middle" font-size="13" fill="#E9E4E0">Server 2</text>
-        </g>
-        <g transform="translate(382 240)">
-          <rect width="116" height="82" rx="12" fill="url(#srv)" stroke="#4F4643"/>
-          <rect x="14" y="16" width="62" height="7" rx="3.5" fill="#5A514D"/><rect x="14" y="30" width="44" height="7" rx="3.5" fill="#5A514D"/>
-          <circle class="pulse d3" cx="96" cy="20" r="5" fill="#3FA19C"/>
-          <text x="58" y="66" text-anchor="middle" font-size="13" fill="#E9E4E0">Server 3</text>
-        </g>
+      <text x="66" y="66" font-size="10.5" fill="#B9AFA9">EE 11</text>
+    </g>
+    <g transform="translate(405 262)">
+      <rect width="130" height="88" rx="12" fill="url(#srv)" stroke="#4F4643"/>
+      <circle class="pulse d3" cx="112" cy="16" r="5" fill="#3FA19C"/>
+      <text x="14" y="21" font-size="12" font-weight="700" fill="#fff">Server 3</text>
+      <g fill="#E8735F" opacity=".85">
+        <rect x="14" y="44" width="10" height="26"><animate attributeName="height" values="26;16;32;26" dur="2.3s" repeatCount="indefinite"/><animate attributeName="y" values="44;54;38;44" dur="2.3s" repeatCount="indefinite"/></rect>
+        <rect x="30" y="52" width="10" height="18"><animate attributeName="height" values="18;30;20;18" dur="1.8s" repeatCount="indefinite"/><animate attributeName="y" values="52;40;50;52" dur="1.8s" repeatCount="indefinite"/></rect>
+        <rect x="46" y="42" width="10" height="28"><animate attributeName="height" values="28;14;24;28" dur="2.6s" repeatCount="indefinite"/><animate attributeName="y" values="42;56;46;42" dur="2.6s" repeatCount="indefinite"/></rect>
       </g>
+      <text x="66" y="66" font-size="10.5" fill="#B9AFA9">Spring 7</text>
+    </g>
+  </g>
 
-      <!-- data grid ring -->
-      <g>
-        <ellipse cx="280" cy="392" rx="150" ry="30" fill="none" stroke="#3FA19C" stroke-width="2" opacity=".55"/>
-        <ellipse cx="280" cy="392" rx="150" ry="30" fill="#3FA19C" opacity=".08" filter="url(#glow)"/>
-        <g class="orbit">
-          <circle cx="430" cy="392" r="7" fill="#3FA19C"/>
-          <circle cx="130" cy="392" r="7" fill="#3FA19C"/>
-          <circle cx="280" cy="362" r="6" fill="#7CC7C2"/>
-          <circle cx="280" cy="422" r="6" fill="#7CC7C2"/>
-        </g>
-        <text x="280" y="397" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="13" font-weight="700" fill="#BFE3E0" letter-spacing="1.5">DATA GRID</text>
-        <path d="M120 322 V372 M280 322 V362 M440 322 V372" stroke="#3FA19C" stroke-width="1.6" stroke-dasharray="3 5" opacity=".7"/>
-      </g>
+  <!-- links to data grid -->
+  <path d="M130 370 V392 M300 370 V376 M470 370 V392" stroke="#3FA19C" stroke-width="1.6" stroke-dasharray="3 5" opacity=".7"/>
 
-      <!-- runtime plates -->
-      <g font-family="Calibri, Segoe UI, Arial" font-size="14" font-weight="700" letter-spacing="1.2">
-        <rect x="70" y="442" width="420" height="34" rx="10" fill="url(#plate)" stroke="#4F4643"/>
-        <text x="280" y="464" text-anchor="middle" fill="#E9E4E0">JAKARTA EE 11 · JDK 21 / 25</text>
-        <rect x="40" y="484" width="480" height="34" rx="10" fill="url(#plate)" stroke="#4F4643"/>
-        <text x="280" y="506" text-anchor="middle" fill="#B9AFA9">OPERATING SYSTEM · CONTAINERS · CLOUD</text>
-      </g>
-    </svg>
+  <!-- data grid with vectors -->
+  <g>
+    <ellipse cx="300" cy="410" rx="176" ry="34" fill="#3FA19C" opacity=".10" filter="url(#blur6)"/>
+    <ellipse cx="300" cy="410" rx="176" ry="34" fill="none" stroke="#3FA19C" stroke-width="2" opacity=".7"/>
+    <ellipse cx="300" cy="410" rx="140" ry="22" fill="none" stroke="#3FA19C" stroke-width="1" stroke-dasharray="2 6" opacity=".6"/>
+    <g>
+      <circle r="6" fill="#3FA19C"><animateMotion dur="7s" repeatCount="indefinite" path="M124 410 a176 34 0 1 0 352 0 a176 34 0 1 0 -352 0"/></circle>
+      <circle r="6" fill="#3FA19C"><animateMotion dur="7s" begin="-3.5s" repeatCount="indefinite" path="M124 410 a176 34 0 1 0 352 0 a176 34 0 1 0 -352 0"/></circle>
+      <circle r="4" fill="#7CC7C2"><animateMotion dur="5s" begin="-1s" repeatCount="indefinite" path="M436 410 a136 22 0 1 0 -272 0 a136 22 0 1 0 272 0"/></circle>
+      <circle r="4" fill="#E8735F"><animateMotion dur="5s" begin="-3.5s" repeatCount="indefinite" path="M436 410 a136 22 0 1 0 -272 0 a136 22 0 1 0 272 0"/></circle>
+    </g>
+    <text x="300" y="408" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="12" font-weight="700" fill="#BFE3E0" letter-spacing="1.5">DATA GRID</text>
+    <text x="300" y="423" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="10" fill="#8FC9C4" letter-spacing="1">CACHE · VECTORS · RAG</text>
+  </g>
+
+  <!-- runtime plates -->
+  <g font-family="Calibri, Segoe UI, Arial" font-size="13" font-weight="700" letter-spacing="1.2" text-anchor="middle">
+    <rect x="78" y="462" width="444" height="34" rx="10" fill="url(#plate)" stroke="#4F4643"/>
+    <text x="300" y="484" fill="#E9E4E0">JAKARTA EE 11 · JDK 21 / 25 · SPRING 7</text>
+    <rect x="44" y="504" width="512" height="34" rx="10" fill="url(#plate)" stroke="#4F4643"/>
+    <text x="300" y="526" fill="#B9AFA9">VMs · KUBERNETES (OKE) · PRIVATE CLOUD APPLIANCE</text>
+  </g>
+
+  <!-- floating chips -->
+  <g font-family="Calibri, Segoe UI, Arial" font-size="11.5" font-weight="700">
+    <g><animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="4s" repeatCount="indefinite"/>
+      <rect x="20" y="118" width="112" height="26" rx="13" fill="#2A2421" stroke="#E8735F" stroke-opacity=".6"/><text x="76" y="135" text-anchor="middle" fill="#F0A493">Model in Image</text></g>
+    <g><animateTransform attributeName="transform" type="translate" values="0 0;0 6;0 0" dur="5s" repeatCount="indefinite"/>
+      <rect x="40" y="166" width="100" height="26" rx="13" fill="#2A2421" stroke="#3FA19C" stroke-opacity=".7"/><text x="90" y="183" text-anchor="middle" fill="#7CC7C2">Vector search</text></g>
+    <g><animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0" dur="4.6s" repeatCount="indefinite"/>
+      <rect x="20" y="40" width="92" height="26" rx="13" fill="#2A2421" stroke="#5A514D"/><text x="66" y="57" text-anchor="middle" fill="#D9D2CD">AIOps</text></g>
+  </g>
+</svg>
   </div></div>
 </div>
 
@@ -344,7 +438,7 @@
   </div>
 
   <div class="lab">
-    <div class="labhead"><h3>From the AI Lab</h3><a href="/ai-lab/">See all prototypes &rarr;</a></div>
+    <div class="labhead"><h3>From the AI Lab</h3><a href="/ai-lab/#try">Try the live demos &rarr;</a></div>
     <div class="labgrid">
       <a href="/ai-lab/"><b>AIOps platform</b><span>Self-built platform for IT operations</span></a>
       <a href="/ai-lab/"><b>Predictive failure detection</b><span>Anomaly models on WebLogic metrics</span></a>
@@ -386,6 +480,7 @@
   <p>&copy; 2026 lakhshit.in</p>
 </div></footer>
 
+<script>try{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){var h=document.getElementById("heroArt");h&&h.pauseAnimations&&h.pauseAnimations();}}catch(e){}</script>
 <script src="/assets/site-config.js"></script>
 </body>
 </html>
