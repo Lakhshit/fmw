@@ -1,4 +1,4 @@
-// FMW Hub site settings. Safe to edit; no rebuild needed.
+// FMW Next site settings. Safe to edit; no rebuild needed.
 window.FMW_SITE = {
   name: "Lakhshit",
   // Slack: paste your member ID (Slack > your profile > More (⋮) > Copy member ID), e.g. "U0123ABCD" or "W0123ABCD".

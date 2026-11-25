@@ -1,4 +1,4 @@
-// FMW Hub: unlocks the encrypted briefing in the browser.
+// FMW Next: unlocks the encrypted briefing in the browser.
 // The briefing and files are stored encrypted (AES-256-GCM). The key is unlocked
 // with the username and password (PBKDF2-SHA256), so nothing readable is published.
 window.FMW = (function () {
