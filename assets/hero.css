@@ -1,0 +1,24 @@
+/* Interactive hero map */
+.herowrap{position:relative}
+#heroArt a.hot{cursor:pointer;outline:none}
+#heroArt a.hot > *{transition:filter .18s, opacity .18s}
+#heroArt a.hot:hover > *, #heroArt a.hot:focus-visible > *{filter:brightness(1.25) drop-shadow(0 0 6px rgba(232,115,95,.55))}
+#heroArt a.chip:hover rect{stroke-opacity:1}
+.htip{position:absolute;z-index:5;pointer-events:none;max-width:260px;background:#FFFFFF;color:#1F1B1A;font:600 13px/1.35 Calibri,"Segoe UI",system-ui,Arial,sans-serif;padding:9px 12px;border-radius:10px;box-shadow:0 14px 34px rgba(0,0,0,.45);opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s}
+.htip.on{opacity:1;transform:none}
+.htip small{display:block;font-weight:400;color:#8C3A2E;margin-top:2px}
+.hhint{position:absolute;right:6px;bottom:-6px;font-size:.8rem;color:#9C928C;letter-spacing:.02em}
+/* incident story */
+#beam{stroke-dasharray:260;stroke-dashoffset:260;opacity:0}
+#heroArt.s-alert #beam{opacity:1;stroke-dashoffset:0;transition:stroke-dashoffset 1s ease, opacity .2s}
+#heroArt.s-fixed #beam{opacity:0;transition:opacity .6s}
+#bubble{opacity:0;transform:translateY(6px);transition:opacity .35s, transform .35s;pointer-events:none}
+#heroArt.s-alert #bubble, #heroArt.s-fixed #bubble{opacity:1;transform:none}
+#heroArt.s-warn #srv2 .bars, #heroArt.s-alert #srv2 .bars{fill:#F2B84B}
+#heroArt.s-warn #srv2 .led2, #heroArt.s-alert #srv2 .led2{fill:#F2B84B}
+#heroArt.s-warn #srv2 .box, #heroArt.s-alert #srv2 .box{stroke:#F2B84B;stroke-width:2}
+#heroArt.s-fixed #srv2 .box{stroke:#3FA19C;stroke-width:2}
+#heroArt.s-alert #aiNode polygon{stroke:#F2B84B;stroke-width:3}
+#heroArt.s-alert #aiNode .aiglow{fill:#F2B84B;opacity:.35}
+#heroArt.s-fixed #bubble rect{stroke:#3FA19C}
+#heroArt.s-fixed #bubble circle{fill:#3FA19C}

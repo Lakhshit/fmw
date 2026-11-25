@@ -47,6 +47,7 @@
   .foot a{color:#C74634}
   @media (max-width:900px){.page{grid-template-columns:1fr;padding-top:96px}.visual{order:2}.art{max-width:420px;margin:0 auto}.visual h1,.visual p{text-align:center;margin-left:auto;margin-right:auto}}
 </style>
+<link rel="stylesheet" href="/assets/hero.css">
 </head>
 <body>
 <div class="page">
@@ -58,7 +59,7 @@
   <div class="visual">
     <h1>Where Fusion Middleware <em>meets AI</em>.</h1>
     <p>Briefings for consultants and leaders on WebLogic, Coherence, OCI and AI.</p>
-<svg class="art" id="heroArt" viewBox="0 0 600 560" style="overflow:visible" role="img" aria-label="Animated illustration: multicloud, a load balancer sending traffic to a WebLogic cluster, an AI services node, a Coherence data grid with vectors, and the Jakarta EE and JDK runtime layers">
+<svg class="art" id="heroArt" viewBox="0 0 600 560" style="overflow:visible" role="img" aria-label="Interactive map: multicloud, a load balancer and WebLogic cluster, an AI services node, a Coherence data grid, and the runtime layers. Each part links to its briefing.">
   <defs>
     <radialGradient id="gR" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#C74634" stop-opacity=".38"/><stop offset="1" stop-color="#C74634" stop-opacity="0"/></radialGradient>
     <radialGradient id="gT" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#3FA19C" stop-opacity=".30"/><stop offset="1" stop-color="#3FA19C" stop-opacity="0"/></radialGradient>
@@ -67,6 +68,7 @@
     <linearGradient id="lb" x1="0" x2="1"><stop offset="0" stop-color="#D65441"/><stop offset="1" stop-color="#B03B2B"/></linearGradient>
     <linearGradient id="ai" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#1E3B39"/><stop offset="1" stop-color="#162826"/></linearGradient>
     <filter id="blur6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity=".5"/></filter>
     <path id="pCloud" d="M300 126 V150"/>
     <path id="pS1" d="M300 196 C300 222 130 220 130 255"/>
     <path id="pS2" d="M300 196 V255"/>
@@ -76,133 +78,157 @@
     <path id="orbitP" d="M210 80 a90 26 0 1 0 180 0 a90 26 0 1 0 -180 0"/>
   </defs>
 
-  <!-- glows -->
   <circle cx="430" cy="140" r="170" fill="url(#gR)"/>
   <circle cx="150" cy="430" r="150" fill="url(#gT)"/>
 
-  <!-- cloud with orbit -->
+  <!-- connectors (behind everything) -->
   <use href="#orbitP" fill="none" stroke="#5A514D" stroke-dasharray="2 6"/>
-  <g>
+  <use href="#pAIc" fill="none" stroke="#3FA19C" stroke-width="1.6" stroke-dasharray="3 5" opacity=".7"/>
+  <use href="#pAI" fill="none" stroke="#3FA19C" stroke-width="1.6" stroke-dasharray="3 5" opacity=".7"/>
+  <use href="#pCloud" stroke="#E8735F" stroke-width="2" stroke-dasharray="4 5"/>
+  <g fill="none" stroke="#E8735F" stroke-width="1.8" stroke-dasharray="4 6" opacity=".8"><use href="#pS1"/><use href="#pS2"/><use href="#pS3"/></g>
+  <path d="M130 370 V392 M300 370 V376 M470 370 V392" stroke="#3FA19C" stroke-width="1.6" stroke-dasharray="3 5" opacity=".7"/>
+  <!-- chip tethers -->
+  <path d="M80 222 L80 238" stroke="#E8735F" stroke-width="1.4" stroke-dasharray="2 3" opacity=".7"/>
+  <path d="M100 426 L128 416" stroke="#3FA19C" stroke-width="1.4" stroke-dasharray="2 3" opacity=".8"/>
+  <path d="M506 58 L502 100" stroke="#3FA19C" stroke-width="1.4" stroke-dasharray="2 3" opacity=".8"/>
+
+  <!-- MULTICLOUD -->
+  <a class="hot" href="/cloud/" data-tip="Cloud &amp; multicloud: landing zones on OCI, OKE, PCA and Azure">
+    <title>Cloud &amp; multicloud</title>
     <g fill="#4F4643"><circle cx="262" cy="92" r="32"/><circle cx="302" cy="70" r="42"/><circle cx="346" cy="90" r="34"/><rect x="228" y="88" width="154" height="38" rx="19"/></g>
-    <g fill="#231E1C"><circle cx="262" cy="92" r="30"/><circle cx="302" cy="70" r="40"/><circle cx="346" cy="90" r="32"/><rect x="230" y="90" width="150" height="34" rx="17"/></g>
+    <g fill="#231E1C" class="fillable"><circle cx="262" cy="92" r="30"/><circle cx="302" cy="70" r="40"/><circle cx="346" cy="90" r="32"/><rect x="230" y="90" width="150" height="34" rx="17"/></g>
     <text x="304" y="102" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="13" font-weight="700" fill="#E9E4E0" letter-spacing="2">MULTICLOUD</text>
     <text x="304" y="118" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="10.5" fill="#9C928C" letter-spacing="1">OCI · PCA · AZURE</text>
-  </g>
+  </a>
   <circle r="5" fill="#E8735F"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#orbitP"/></animateMotion></circle>
   <circle r="4" fill="#7CC7C2"><animateMotion dur="9s" begin="-4.5s" repeatCount="indefinite"><mpath href="#orbitP"/></animateMotion></circle>
 
-  <!-- AI services node -->
-  <g>
-    <circle cx="500" cy="150" r="58" fill="#3FA19C" opacity=".12" filter="url(#blur6)"/>
-    <polygon points="500,100 543,125 543,175 500,200 457,175 457,125" fill="url(#ai)" stroke="#3FA19C" stroke-width="2"/>
-    <g stroke="#7CC7C2" stroke-width="1.2" opacity=".8">
-      <path d="M478 132 L500 124 M478 132 L500 150 M478 132 L500 176 M478 168 L500 124 M478 168 L500 150 M478 168 L500 176 M500 124 L522 150 M500 150 L522 150 M500 176 L522 150"/>
+  <!-- AI SERVICES -->
+  <a class="hot" href="/ai-lab/" data-tip="AI Lab: live anomaly detection, log analyzer and migration scorer">
+    <title>AI Lab</title>
+    <g id="aiNode">
+      <circle class="aiglow" cx="500" cy="150" r="58" fill="#3FA19C" opacity=".12" filter="url(#blur6)"/>
+      <polygon points="500,100 543,125 543,175 500,200 457,175 457,125" fill="url(#ai)" stroke="#3FA19C" stroke-width="2"/>
+      <g stroke="#7CC7C2" stroke-width="1.2" opacity=".8"><path d="M478 132 L500 124 M478 132 L500 150 M478 132 L500 176 M478 168 L500 124 M478 168 L500 150 M478 168 L500 176 M500 124 L522 150 M500 150 L522 150 M500 176 L522 150"/></g>
+      <g fill="#7CC7C2"><circle cx="478" cy="132" r="4"/><circle cx="478" cy="168" r="4"/><circle class="pulse" cx="500" cy="124" r="4"/><circle class="pulse d2" cx="500" cy="150" r="4"/><circle class="pulse d3" cx="500" cy="176" r="4"/></g>
+      <circle cx="522" cy="150" r="6" fill="#E8735F"><animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/></circle>
+      <text x="500" y="222" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="11" font-weight="700" fill="#BFE3E0" letter-spacing="1.5">AI SERVICES</text>
     </g>
-    <g fill="#7CC7C2"><circle cx="478" cy="132" r="4"/><circle cx="478" cy="168" r="4"/><circle class="pulse" cx="500" cy="124" r="4"/><circle class="pulse d2" cx="500" cy="150" r="4"/><circle class="pulse d3" cx="500" cy="176" r="4"/></g>
-    <circle cx="522" cy="150" r="6" fill="#E8735F"><animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/></circle>
-    <text x="500" y="222" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="11" font-weight="700" fill="#BFE3E0" letter-spacing="1.5">AI SERVICES</text>
-  </g>
-  <use href="#pAIc" fill="none" stroke="#3FA19C" stroke-width="1.6" stroke-dasharray="3 5" opacity=".7"/>
-  <use href="#pAI" fill="none" stroke="#3FA19C" stroke-width="1.6" stroke-dasharray="3 5" opacity=".7"/>
+  </a>
   <circle r="4" fill="#7CC7C2"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#pAI"/></animateMotion></circle>
   <circle r="3.5" fill="#7CC7C2"><animateMotion dur="2s" begin="-1s" repeatCount="indefinite"><mpath href="#pAIc"/></animateMotion></circle>
-
-  <!-- cloud to load balancer -->
-  <use href="#pCloud" stroke="#E8735F" stroke-width="2" stroke-dasharray="4 5"/>
   <circle r="4" fill="#FFD3C9"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#pCloud"/></animateMotion></circle>
 
-  <!-- load balancer -->
-  <g>
+  <!-- LOAD BALANCER -->
+  <a class="hot" href="/weblogic-26/#oci" data-tip="WebLogic 26 on OCI: Marketplace stacks with a load balancer">
+    <title>WebLogic 26 on OCI</title>
     <rect x="222" y="150" width="156" height="46" rx="23" fill="url(#lb)"/>
-    <rect x="222" y="150" width="156" height="46" rx="23" fill="none" stroke="#FFB4A6" stroke-opacity=".5">
-      <animate attributeName="stroke-opacity" values=".1;.7;.1" dur="2.4s" repeatCount="indefinite"/>
-    </rect>
+    <rect x="222" y="150" width="156" height="46" rx="23" fill="none" stroke="#FFB4A6" stroke-opacity=".5"><animate attributeName="stroke-opacity" values=".1;.7;.1" dur="2.4s" repeatCount="indefinite"/></rect>
     <text x="300" y="179" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="15" font-weight="700" fill="#fff">Load balancer</text>
-  </g>
-
-  <!-- traffic to servers -->
-  <g fill="none" stroke="#E8735F" stroke-width="1.8" stroke-dasharray="4 6" opacity=".8">
-    <use href="#pS1"/><use href="#pS2"/><use href="#pS3"/>
-  </g>
+  </a>
   <g fill="#FFD3C9">
     <circle r="4"><animateMotion dur="1.8s" repeatCount="indefinite"><mpath href="#pS1"/></animateMotion></circle>
     <circle r="4"><animateMotion dur="1.8s" begin="-.6s" repeatCount="indefinite"><mpath href="#pS2"/></animateMotion></circle>
     <circle r="4"><animateMotion dur="1.8s" begin="-1.2s" repeatCount="indefinite"><mpath href="#pS3"/></animateMotion></circle>
   </g>
 
-  <!-- cluster -->
-  <rect x="44" y="236" width="512" height="134" rx="18" fill="#C74634" fill-opacity=".03" stroke="#4A423F" stroke-dasharray="4 6"/>
-  <text x="540" y="364" text-anchor="end" font-family="Calibri, Segoe UI, Arial" font-size="10.5" fill="#9C928C" letter-spacing="1.5">WEBLOGIC CLUSTER</text>
-  <g font-family="Calibri, Segoe UI, Arial">
-    <g transform="translate(65 262)">
-      <rect width="130" height="88" rx="12" fill="url(#srv)" stroke="#4F4643"/>
-      <circle class="pulse" cx="112" cy="16" r="5" fill="#3FA19C"/>
-      <text x="14" y="21" font-size="12" font-weight="700" fill="#fff">Server 1</text>
-      <g fill="#E8735F" opacity=".85">
-        <rect x="14" y="40" width="10" height="30"><animate attributeName="height" values="30;14;26;30" dur="2.2s" repeatCount="indefinite"/><animate attributeName="y" values="40;56;44;40" dur="2.2s" repeatCount="indefinite"/></rect>
-        <rect x="30" y="50" width="10" height="20"><animate attributeName="height" values="20;32;18;20" dur="1.9s" repeatCount="indefinite"/><animate attributeName="y" values="50;38;52;50" dur="1.9s" repeatCount="indefinite"/></rect>
-        <rect x="46" y="44" width="10" height="26"><animate attributeName="height" values="26;12;30;26" dur="2.5s" repeatCount="indefinite"/><animate attributeName="y" values="44;58;40;44" dur="2.5s" repeatCount="indefinite"/></rect>
+  <!-- WEBLOGIC CLUSTER -->
+  <a class="hot" href="/weblogic-26/" data-tip="WebLogic Server 26: Jakarta EE 11, JDK 21/25, upgrade path finder">
+    <title>WebLogic Server 26</title>
+    <rect x="44" y="236" width="512" height="134" rx="18" fill="#C74634" fill-opacity=".03" stroke="#4A423F" stroke-dasharray="4 6"/>
+    <text x="540" y="364" text-anchor="end" font-family="Calibri, Segoe UI, Arial" font-size="10.5" fill="#9C928C" letter-spacing="1.5">WEBLOGIC CLUSTER</text>
+    <g font-family="Calibri, Segoe UI, Arial">
+      <g transform="translate(65 262)">
+        <rect width="130" height="88" rx="12" fill="url(#srv)" stroke="#4F4643"/>
+        <circle class="pulse" cx="112" cy="16" r="5" fill="#3FA19C"/>
+        <text x="14" y="21" font-size="12" font-weight="700" fill="#fff">Server 1</text>
+        <g fill="#E8735F" opacity=".85">
+          <rect x="14" y="40" width="10" height="30"><animate attributeName="height" values="30;14;26;30" dur="2.2s" repeatCount="indefinite"/><animate attributeName="y" values="40;56;44;40" dur="2.2s" repeatCount="indefinite"/></rect>
+          <rect x="30" y="50" width="10" height="20"><animate attributeName="height" values="20;32;18;20" dur="1.9s" repeatCount="indefinite"/><animate attributeName="y" values="50;38;52;50" dur="1.9s" repeatCount="indefinite"/></rect>
+          <rect x="46" y="44" width="10" height="26"><animate attributeName="height" values="26;12;30;26" dur="2.5s" repeatCount="indefinite"/><animate attributeName="y" values="44;58;40;44" dur="2.5s" repeatCount="indefinite"/></rect>
+        </g>
+        <text x="66" y="66" font-size="10.5" fill="#B9AFA9">JDK 25</text>
       </g>
-      <text x="66" y="66" font-size="10.5" fill="#B9AFA9">JDK 25</text>
-    </g>
-    <g transform="translate(235 262)">
-      <rect width="130" height="88" rx="12" fill="url(#srv)" stroke="#4F4643"/>
-      <circle class="pulse d2" cx="112" cy="16" r="5" fill="#3FA19C"/>
-      <text x="14" y="21" font-size="12" font-weight="700" fill="#fff">Server 2</text>
-      <g fill="#E8735F" opacity=".85">
-        <rect x="14" y="48" width="10" height="22"><animate attributeName="height" values="22;34;16;22" dur="2s" repeatCount="indefinite"/><animate attributeName="y" values="48;36;54;48" dur="2s" repeatCount="indefinite"/></rect>
-        <rect x="30" y="40" width="10" height="30"><animate attributeName="height" values="30;18;28;30" dur="2.4s" repeatCount="indefinite"/><animate attributeName="y" values="40;52;42;40" dur="2.4s" repeatCount="indefinite"/></rect>
-        <rect x="46" y="54" width="10" height="16"><animate attributeName="height" values="16;30;22;16" dur="1.7s" repeatCount="indefinite"/><animate attributeName="y" values="54;40;48;54" dur="1.7s" repeatCount="indefinite"/></rect>
+      <g transform="translate(235 262)" id="srv2">
+        <rect class="box" width="130" height="88" rx="12" fill="url(#srv)" stroke="#4F4643"/>
+        <circle class="led2 pulse d2" cx="112" cy="16" r="5" fill="#3FA19C"/>
+        <text x="14" y="21" font-size="12" font-weight="700" fill="#fff">Server 2</text>
+        <g class="bars" fill="#E8735F" opacity=".85">
+          <rect x="14" y="48" width="10" height="22"><animate attributeName="height" values="22;34;16;22" dur="2s" repeatCount="indefinite"/><animate attributeName="y" values="48;36;54;48" dur="2s" repeatCount="indefinite"/></rect>
+          <rect x="30" y="40" width="10" height="30"><animate attributeName="height" values="30;18;28;30" dur="2.4s" repeatCount="indefinite"/><animate attributeName="y" values="40;52;42;40" dur="2.4s" repeatCount="indefinite"/></rect>
+          <rect x="46" y="54" width="10" height="16"><animate attributeName="height" values="16;30;22;16" dur="1.7s" repeatCount="indefinite"/><animate attributeName="y" values="54;40;48;54" dur="1.7s" repeatCount="indefinite"/></rect>
+        </g>
+        <text class="lbl2" x="66" y="66" font-size="10.5" fill="#B9AFA9">EE 11</text>
       </g>
-      <text x="66" y="66" font-size="10.5" fill="#B9AFA9">EE 11</text>
-    </g>
-    <g transform="translate(405 262)">
-      <rect width="130" height="88" rx="12" fill="url(#srv)" stroke="#4F4643"/>
-      <circle class="pulse d3" cx="112" cy="16" r="5" fill="#3FA19C"/>
-      <text x="14" y="21" font-size="12" font-weight="700" fill="#fff">Server 3</text>
-      <g fill="#E8735F" opacity=".85">
-        <rect x="14" y="44" width="10" height="26"><animate attributeName="height" values="26;16;32;26" dur="2.3s" repeatCount="indefinite"/><animate attributeName="y" values="44;54;38;44" dur="2.3s" repeatCount="indefinite"/></rect>
-        <rect x="30" y="52" width="10" height="18"><animate attributeName="height" values="18;30;20;18" dur="1.8s" repeatCount="indefinite"/><animate attributeName="y" values="52;40;50;52" dur="1.8s" repeatCount="indefinite"/></rect>
-        <rect x="46" y="42" width="10" height="28"><animate attributeName="height" values="28;14;24;28" dur="2.6s" repeatCount="indefinite"/><animate attributeName="y" values="42;56;46;42" dur="2.6s" repeatCount="indefinite"/></rect>
+      <g transform="translate(405 262)">
+        <rect width="130" height="88" rx="12" fill="url(#srv)" stroke="#4F4643"/>
+        <circle class="pulse d3" cx="112" cy="16" r="5" fill="#3FA19C"/>
+        <text x="14" y="21" font-size="12" font-weight="700" fill="#fff">Server 3</text>
+        <g fill="#E8735F" opacity=".85">
+          <rect x="14" y="44" width="10" height="26"><animate attributeName="height" values="26;16;32;26" dur="2.3s" repeatCount="indefinite"/><animate attributeName="y" values="44;54;38;44" dur="2.3s" repeatCount="indefinite"/></rect>
+          <rect x="30" y="52" width="10" height="18"><animate attributeName="height" values="18;30;20;18" dur="1.8s" repeatCount="indefinite"/><animate attributeName="y" values="52;40;50;52" dur="1.8s" repeatCount="indefinite"/></rect>
+          <rect x="46" y="42" width="10" height="28"><animate attributeName="height" values="28;14;24;28" dur="2.6s" repeatCount="indefinite"/><animate attributeName="y" values="42;56;46;42" dur="2.6s" repeatCount="indefinite"/></rect>
+        </g>
+        <text x="66" y="66" font-size="10.5" fill="#B9AFA9">Spring 7</text>
       </g>
-      <text x="66" y="66" font-size="10.5" fill="#B9AFA9">Spring 7</text>
     </g>
-  </g>
+  </a>
 
-  <!-- links to data grid -->
-  <path d="M130 370 V392 M300 370 V376 M470 370 V392" stroke="#3FA19C" stroke-width="1.6" stroke-dasharray="3 5" opacity=".7"/>
-
-  <!-- data grid with vectors -->
-  <g>
+  <!-- DATA GRID -->
+  <a class="hot" href="/weblogic-26/#coherence" data-tip="Coherence 26: data grid, vector search and RAG">
+    <title>Coherence 26</title>
     <ellipse cx="300" cy="410" rx="176" ry="34" fill="#3FA19C" opacity=".10" filter="url(#blur6)"/>
-    <ellipse cx="300" cy="410" rx="176" ry="34" fill="none" stroke="#3FA19C" stroke-width="2" opacity=".7"/>
+    <ellipse cx="300" cy="410" rx="176" ry="34" fill="#3FA19C" fill-opacity=".04" stroke="#3FA19C" stroke-width="2" stroke-opacity=".7"/>
     <ellipse cx="300" cy="410" rx="140" ry="22" fill="none" stroke="#3FA19C" stroke-width="1" stroke-dasharray="2 6" opacity=".6"/>
-    <g>
-      <circle r="6" fill="#3FA19C"><animateMotion dur="7s" repeatCount="indefinite" path="M124 410 a176 34 0 1 0 352 0 a176 34 0 1 0 -352 0"/></circle>
-      <circle r="6" fill="#3FA19C"><animateMotion dur="7s" begin="-3.5s" repeatCount="indefinite" path="M124 410 a176 34 0 1 0 352 0 a176 34 0 1 0 -352 0"/></circle>
-      <circle r="4" fill="#7CC7C2"><animateMotion dur="5s" begin="-1s" repeatCount="indefinite" path="M436 410 a136 22 0 1 0 -272 0 a136 22 0 1 0 272 0"/></circle>
-      <circle r="4" fill="#E8735F"><animateMotion dur="5s" begin="-3.5s" repeatCount="indefinite" path="M436 410 a136 22 0 1 0 -272 0 a136 22 0 1 0 272 0"/></circle>
-    </g>
     <text x="300" y="408" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="12" font-weight="700" fill="#BFE3E0" letter-spacing="1.5">DATA GRID</text>
     <text x="300" y="423" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="10" fill="#8FC9C4" letter-spacing="1">CACHE · VECTORS · RAG</text>
+  </a>
+  <g pointer-events="none">
+    <circle r="6" fill="#3FA19C"><animateMotion dur="7s" repeatCount="indefinite" path="M124 410 a176 34 0 1 0 352 0 a176 34 0 1 0 -352 0"/></circle>
+    <circle r="6" fill="#3FA19C"><animateMotion dur="7s" begin="-3.5s" repeatCount="indefinite" path="M124 410 a176 34 0 1 0 352 0 a176 34 0 1 0 -352 0"/></circle>
+    <circle r="4" fill="#7CC7C2"><animateMotion dur="5s" begin="-1s" repeatCount="indefinite" path="M436 410 a136 22 0 1 0 -272 0 a136 22 0 1 0 272 0"/></circle>
+    <circle r="4" fill="#E8735F"><animateMotion dur="5s" begin="-3.5s" repeatCount="indefinite" path="M436 410 a136 22 0 1 0 -272 0 a136 22 0 1 0 272 0"/></circle>
   </g>
 
-  <!-- runtime plates -->
+  <!-- RUNTIME PLATES -->
   <g font-family="Calibri, Segoe UI, Arial" font-size="13" font-weight="700" letter-spacing="1.2" text-anchor="middle">
-    <rect x="78" y="462" width="444" height="34" rx="10" fill="url(#plate)" stroke="#4F4643"/>
-    <text x="300" y="484" fill="#E9E4E0">JAKARTA EE 11 · JDK 21 / 25 · SPRING 7</text>
-    <rect x="44" y="504" width="512" height="34" rx="10" fill="url(#plate)" stroke="#4F4643"/>
-    <text x="300" y="526" fill="#B9AFA9">VMs · KUBERNETES (OKE) · PRIVATE CLOUD APPLIANCE</text>
+    <a class="hot" href="/weblogic-26/#platform" data-tip="Platform &amp; APIs: Jakarta EE 11, JDK 21/25, Spring 7, Jakarta Data">
+      <title>Platform &amp; APIs</title>
+      <rect x="78" y="462" width="444" height="34" rx="10" fill="url(#plate)" stroke="#4F4643"/>
+      <text x="300" y="484" fill="#E9E4E0">JAKARTA EE 11 · JDK 21 / 25 · SPRING 7</text>
+    </a>
+    <a class="hot" href="/containers/" data-tip="Containers &amp; OKE, plus Private Cloud Appliance: where WebLogic runs">
+      <title>Containers &amp; OKE</title>
+      <rect x="44" y="504" width="512" height="34" rx="10" fill="url(#plate)" stroke="#4F4643"/>
+      <text x="300" y="526" fill="#B9AFA9">VMs · KUBERNETES (OKE) · PRIVATE CLOUD APPLIANCE</text>
+    </a>
   </g>
 
-  <!-- floating chips -->
-  <g font-family="Calibri, Segoe UI, Arial" font-size="11.5" font-weight="700">
-    <g><animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="4s" repeatCount="indefinite"/>
-      <rect x="20" y="118" width="112" height="26" rx="13" fill="#2A2421" stroke="#E8735F" stroke-opacity=".6"/><text x="76" y="135" text-anchor="middle" fill="#F0A493">Model in Image</text></g>
-    <g><animateTransform attributeName="transform" type="translate" values="0 0;0 6;0 0" dur="5s" repeatCount="indefinite"/>
-      <rect x="40" y="166" width="100" height="26" rx="13" fill="#2A2421" stroke="#3FA19C" stroke-opacity=".7"/><text x="90" y="183" text-anchor="middle" fill="#7CC7C2">Vector search</text></g>
-    <g><animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0" dur="4.6s" repeatCount="indefinite"/>
-      <rect x="20" y="40" width="92" height="26" rx="13" fill="#2A2421" stroke="#5A514D"/><text x="66" y="57" text-anchor="middle" fill="#D9D2CD">AIOps</text></g>
+  <!-- ATTACHED CHIPS -->
+  <g font-family="Calibri, Segoe UI, Arial" font-size="11.5" font-weight="700" text-anchor="middle">
+    <a class="hot chip" href="/containers/#models" data-tip="Model in Image: how the WebLogic Kubernetes Operator builds domains">
+      <title>Model in Image</title>
+      <rect x="24" y="196" width="112" height="26" rx="13" fill="#2A2421" stroke="#E8735F" stroke-opacity=".7"/><text x="80" y="213" fill="#F0A493">Model in Image</text>
+    </a>
+    <a class="hot chip" href="/ai-lab/#try" data-tip="AIOps: try the live anomaly-detection demo">
+      <title>AIOps demo</title>
+      <rect x="462" y="32" width="88" height="26" rx="13" fill="#2A2421" stroke="#3FA19C" stroke-opacity=".8"/><text x="506" y="49" fill="#7CC7C2">AIOps</text>
+    </a>
+    <a class="hot chip" href="/weblogic-26/#ai-angle" data-tip="Vector search: Coherence and AI Vector Search for RAG">
+      <title>Vector search</title>
+      <rect x="0" y="426" width="100" height="26" rx="13" fill="#2A2421" stroke="#3FA19C" stroke-opacity=".8"/><text x="50" y="443" fill="#7CC7C2">Vector search</text>
+    </a>
+  </g>
+
+  <!-- AI INCIDENT STORY (driven by /assets/hero.js) -->
+  <path id="beam" d="M470 190 C440 220 380 230 330 262" fill="none" stroke="#F2B84B" stroke-width="2.6" stroke-linecap="round"/>
+  <g id="bubble" filter="url(#shadow)">
+    <rect x="160" y="200" width="280" height="48" rx="12" fill="#2B2420" stroke="#F2B84B"/>
+    <circle cx="182" cy="224" r="8" fill="#F2B84B"/>
+    <text id="bIcon" x="182" y="228" text-anchor="middle" font-family="Calibri, Segoe UI, Arial" font-size="12" font-weight="700" fill="#1F1B1A">!</text>
+    <text id="bT1" x="198" y="220" font-family="Calibri, Segoe UI, Arial" font-size="12.5" font-weight="700" fill="#fff">Heap leak detected on Server 2</text>
+    <text id="bT2" x="198" y="237" font-family="Calibri, Segoe UI, Arial" font-size="11" fill="#D9D2CD">AIOps: rolling restart suggested</text>
   </g>
 </svg>
   </div>
@@ -227,7 +253,6 @@
     <div class="foot">No login yet? <a href="#" data-slack>Say hi on Slack</a> and you'll get one quickly. <a href="/" style="float:right">Home</a></div>
   </form>
 </div>
-<script>try{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){var h=document.getElementById("heroArt");h&&h.pauseAnimations&&h.pauseAnimations();}}catch(e){}</script>
 <script src="/assets/fmw-crypto.js"></script>
 <script src="/assets/site-config.js"></script>
 <script>
@@ -260,5 +285,6 @@
     });
   })();
 </script>
+<script src="/assets/hero.js"></script>
 </body>
 </html>

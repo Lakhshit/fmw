@@ -53,6 +53,7 @@ window.FMW = (function () {
     if (!entry) return null;
     try {
       var obj = JSON.parse(dec.decode(await aesDecrypt(key, entry.iv, entry.ct)));
+      obj.u = String(user).trim().toLowerCase();
       save(obj, kf.hours || 12);
       return obj;
     } catch (e) {
