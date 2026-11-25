@@ -128,6 +128,13 @@
   .labgrid b{display:block;color:#fff}
   .labgrid span{color:#B9AFA9;font-size:.9rem}
   .whoami{color:#9C928C;font-size:.85rem;border-left:1px solid #3A3330;padding-left:18px}
+  .by{color:#B9AFA9;margin:-12px 0 26px;font-size:1rem}
+  .by b{color:#fff}
+  .about{display:grid;grid-template-columns:150px 1fr;gap:34px;align-items:start;background:#fff;border-radius:20px;padding:34px;box-shadow:0 10px 30px rgba(31,27,26,.06)}
+  .avatar{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:3.2rem;font-weight:700;color:#fff;background:linear-gradient(135deg,#C74634,#7A2A20);box-shadow:0 14px 34px rgba(199,70,52,.35)}
+  .about .role{color:#C74634;font-weight:700;margin:-6px 0 12px}
+  .about p{color:#4A4442}
+  @media (max-width:700px){.about{grid-template-columns:1fr}.avatar{width:96px;height:96px;font-size:2.2rem}}
   footer{background:#0F0D0C;color:#8F8681;padding:36px 0;font-size:.88rem}
   footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
   footer p{margin:0;max-width:760px}
@@ -146,14 +153,15 @@
     <nav class="toplinks">
       <div class="tdd"><a href="#briefings">Briefings</a>
         <div class="tsub">
+          <a href="/versions/"><b>WebLogic 12c &#8594; 14c &#8594; 15c &#8594; 26</b><span>Every release compared</span></a>
           <a href="/weblogic-26/"><b>WebLogic 26</b><span>What's new, upgrade, OCI setup</span></a>
           <a href="/containers/"><b>Containers &amp; OKE</b><span>WKO, WDT, WIT, OKE</span></a>
           <a href="/pca/"><b>Private Cloud Appliance</b><span>OCI-compatible, on-premises</span></a>
           <a href="/cloud/"><b>Cloud &amp; multicloud</b><span>Landing zones, tools, dates</span></a>
-          <a href="/ai-lab/"><b>AI Lab</b><span>Live demos and prototypes</span></a>
+          <a href="/ai-lab/"><b>AI Lab</b><span>Live demos, ML &amp; deep learning playbook</span></a>
         </div>
       </div>
-      <a href="#ai">FMW &times; AI</a><a href="/ai-lab/#try">Live demos</a><a href="#" data-slack>Slack</a></nav>
+      <a href="#ai">FMW &times; AI</a><a href="/ai-lab/#try">Live demos</a><a href="#about">About</a><a href="#" data-slack>Slack</a></nav>
     <a class="btn ghost small" href="/login.html">Sign in</a>
   </div></header>
 
@@ -169,6 +177,7 @@
         </a>
         <a class="btn ghost" href="#ai">Explore FMW &times; AI</a>
       </div>
+      <p class="by">Curated by <b>Lakhshit Kumar</b> &middot; Fusion Middleware, OCI &amp; AI architect</p>
       <div class="trust">
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3FA19C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Members only</span>
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3FA19C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Downloadable decks</span>
@@ -355,8 +364,15 @@
 <div class="strip"><div class="wrap"><span class="dotlive"></span><b>Plan now:</b>&nbsp;Premier Support for Fusion Middleware 12c concludes in December 2026, and WebLogic Server 26 is available on-premises and on OCI. <a href="/cloud/">See the dates and options &rarr;</a></div></div>
 <section class="light" id="briefings"><div class="wrap">
   <h2>Briefings</h2>
-  <p class="sub">Five member briefings with interactive tools. Sign in once to open them all.</p>
+  <p class="sub">Six member briefings with interactive tools. Sign in once to open them all.</p>
   <div class="cards">
+    <a class="card brief" href="/versions/">
+      <svg width="46" height="46" viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="14" fill="#C74634"/><g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 32 H54"/><circle cx="16" cy="32" r="4"/><circle cx="32" cy="32" r="4"/><circle cx="48" cy="32" r="5"/></g></svg>
+      <h3>WebLogic 12c &#8594; 14c &#8594; 15c &#8594; 26</h3>
+      <p>Every release compared: 12.2.1.4, 14.1.1, 14.1.2 (LTS), 15.1.1 and 26. Support dates, FMW suite vs standalone, upgrade paths and a "which version?" chooser.</p>
+      <div class="meta"><span class="chip">14c</span><span class="chip teal">15c</span><span class="chip gray">Support dates</span></div>
+      <div class="bfoot"><span class="lock"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Version chooser</span><span class="go">Open &rarr;</span></div>
+    </a>
     <a class="card brief" href="/weblogic-26/">
       <svg width="46" height="46" viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="14" fill="#C74634"/><g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 20 L32 11 L50 20 L32 29 Z"/><path d="M14 32 L32 41 L50 32"/><path d="M14 44 L32 53 L50 44"/></g></svg>
       <h3>What's New in WebLogic Server 26</h3>
@@ -473,6 +489,7 @@
       <a href="/ai-lab/"><b>Plain-English alerts</b><span>GenAI turns logs into readable alerts</span></a>
       <a href="/ai-lab/"><b>Sentinel AI</b><span>Customer-success digital worker</span></a>
       <a href="/ai-lab/"><b>Agentic workflows</b><span>LLM agents with tools and memory</span></a>
+      <a href="/ai-lab/#mldl"><b>ML &amp; deep learning playbook</b><span>Isolation Forest, LSTMs, embeddings, ONNX in Java</span></a>
     </div>
   </div>
 
@@ -485,6 +502,20 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 15a2 2 0 1 1-2-2h2v2zm1 0a2 2 0 1 1 4 0v5a2 2 0 1 1-4 0v-5zm2-9a2 2 0 1 1 2-2v2H9zm0 1a2 2 0 1 1 0 4H4a2 2 0 1 1 0-4h5zm9 2a2 2 0 1 1 2 2h-2V9zm-1 0a2 2 0 1 1-4 0V4a2 2 0 1 1 4 0v5zm-2 9a2 2 0 1 1-2 2v-2h2zm0-1a2 2 0 1 1 0-4h5a2 2 0 1 1 0 4h-5z"/></svg>
       Let's talk on Slack
     </a>
+  </div>
+</div></section>
+
+<section class="light" id="about"><div class="wrap">
+  <div class="about">
+    <div class="avatar" aria-hidden="true">LK</div>
+    <div>
+      <span class="eyebrow" style="color:#C74634"><i style="background:#C74634"></i>About the author</span>
+      <h2 style="margin-top:10px">Lakhshit Kumar</h2>
+      <p class="role">Oracle Fusion Middleware, OCI &amp; AI architect</p>
+      <p>18+ years designing, upgrading and running WebLogic, SOA Suite and OIC estates, on-premises and on Oracle Cloud Infrastructure, with hands-on work across OKE (Kubernetes), Private Cloud Appliance, DevOps and AI-driven automation, in both presales and delivery.</p>
+      <p>FMW Next brings together what I use with consultants and leaders: clear briefings, practical tools and working AI prototypes for middleware.</p>
+      <div class="actions" style="margin-top:18px"><a class="btn primary" href="#" data-slack>Connect on Slack</a><a class="btn ghost" style="color:#1F1B1A;border-color:#C9C1BB" href="/ai-lab/">See the AI Lab</a></div>
+    </div>
   </div>
 </div></section>
 
@@ -503,6 +534,7 @@
 </div></section>
 
 <footer><div class="wrap">
+  <p><b style="color:#E9E4E0">FMW Next</b> is created and maintained by <b style="color:#E9E4E0">Lakhshit Kumar</b>. Views are my own.</p>
   <p>FMW Next is an independent resource compiled from Oracle's public documentation. Oracle, Java, WebLogic and Coherence are registered trademarks of Oracle and/or its affiliates. This site is not affiliated with or endorsed by Oracle.</p>
   <p>&copy; 2026 lakhshit.in</p>
 </div></footer>
