@@ -2,7 +2,7 @@
 window.FMW_SITE = {
   name: "Lakhshit",
   // Slack: paste your member ID (Slack > your profile > More (⋮) > Copy member ID), e.g. "U0123ABCD" or "W0123ABCD".
-  slackMemberId: "",
+  slackMemberId: "U02DWBR0K1D",
   // Slack: your workspace address as shown in the browser, e.g. "https://yourco.slack.com"
   // or, for an Enterprise org, "https://yourorg.enterprise.slack.com".
   slackWorkspaceUrl: "",
