@@ -19,7 +19,7 @@
 <script src="/assets/fmw-crypto.js"></script>
 <script>
   (async function () {
-    var back = "/login.html?next=" + encodeURIComponent(location.pathname);
+    var back = "/login.html?next=" + encodeURIComponent(location.pathname + location.hash);
     var keys = FMW.load();
     if (!keys) { location.replace(back); return; }
     try {

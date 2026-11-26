@@ -117,6 +117,19 @@
   .strip{background:#C74634;color:#fff;font-size:.98rem}
   .strip .wrap{display:flex;align-items:center;flex-wrap:wrap;gap:4px;padding-top:12px;padding-bottom:12px}
   .strip a{color:#fff;font-weight:700;margin-left:8px}
+.heronew{display:inline-flex;align-items:center;gap:8px;margin-left:12px;padding:4px 12px 4px 4px;border-radius:999px;border:1px solid rgba(63,161,156,.5);background:rgba(63,161,156,.12);color:#CFEAE7;text-decoration:none;font-size:.85rem;font-weight:600;vertical-align:middle}
+.heronew i{font-style:normal;background:#3FA19C;color:#0E2423;font-weight:800;font-size:.7rem;letter-spacing:.08em;border-radius:999px;padding:2px 8px}
+.heronew:hover{border-color:#3FA19C;color:#fff}
+@media (max-width:560px){.heronew{margin:10px 0 0}}
+.newstrip{background:#1F1B1A;color:#EDE8E4;font-size:.98rem;border-bottom:1px solid #3A3330}
+.newstrip .wrap{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;padding-top:12px;padding-bottom:12px}
+.newstrip b{color:#fff}
+.nbadge{background:#3FA19C;color:#0E2423;font-weight:800;font-size:.75rem;letter-spacing:.08em;border-radius:999px;padding:3px 10px;animation:nb 2.4s ease-in-out infinite}
+@keyframes nb{0%,100%{box-shadow:0 0 0 0 rgba(63,161,156,.5)}50%{box-shadow:0 0 0 6px rgba(63,161,156,0)}}
+.nlinks{display:flex;gap:16px;margin-left:auto}
+.nlinks a{color:#8FD3CE;font-weight:700;text-decoration:none;white-space:nowrap}
+.nlinks a:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){.nbadge{animation:none}}
   .dotlive{width:9px;height:9px;border-radius:50%;background:#fff;margin-right:10px;animation:pulse 2s infinite}
   .lab{margin-top:34px}
   .labhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
@@ -125,6 +138,8 @@
   .labgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
   .labgrid a{display:block;text-decoration:none;background:#211C1A;border:1px solid #3A3330;border-radius:12px;padding:14px 16px;transition:.18s}
   .labgrid a:hover{border-color:#7CC7C2;transform:translateY(-2px)}
+  .labgrid a.isnew{border-color:#3FA19C;background:#1B2A29}
+  .labgrid a b em{font-style:normal;background:#3FA19C;color:#0E2423;font-size:.68rem;font-weight:800;letter-spacing:.06em;border-radius:999px;padding:2px 7px;margin-left:6px;vertical-align:2px;text-transform:uppercase}
   .labgrid b{display:block;color:#fff}
   .labgrid span{color:#B9AFA9;font-size:.9rem}
   .whoami{color:#9C928C;font-size:.85rem;border-left:1px solid #3A3330;padding-left:18px}
@@ -171,6 +186,7 @@
   <div class="hero"><div class="wrap">
     <div>
       <span class="eyebrow"><i></i>Fusion Middleware &times; AI</span>
+      <a class="heronew" href="/ai-lab/#ask"><i>NEW</i>AI search &amp; upgrade scanner <span>&rarr;</span></a>
       <h1>Where Fusion Middleware <em>meets AI</em>.</h1>
       <p class="lead">Practical briefings for consultants and leaders on WebLogic, Coherence and OCI, plus how today's platform opens the door to AI, ML and deep learning workloads.</p>
       <div class="actions">
@@ -365,6 +381,7 @@
   </div></div>
 </div>
 
+<div class="newstrip"><div class="wrap"><span class="nbadge">NEW</span><span><b>Just added:</b> Ask FMW Next, an AI search over the briefings and known WebLogic issues, and a WebLogic 26 upgrade readiness scanner for your own config and code.</span><span class="nlinks"><a href="/ai-lab/#ask">Ask a question &rarr;</a><a href="/ai-lab/#scan">Scan your code &rarr;</a></span></div></div>
 <div class="strip"><div class="wrap"><span class="dotlive"></span><b>Plan now:</b>&nbsp;Premier Support for Fusion Middleware 12c concludes in December 2026, and WebLogic Server 26 is available on-premises and on OCI. <a href="/cloud/">See the dates and options &rarr;</a></div></div>
 <section class="light" id="briefings"><div class="wrap">
   <h2>Briefings</h2>
@@ -485,8 +502,10 @@
   </div>
 
   <div class="lab">
-    <div class="labhead"><h3>From the AI Lab</h3><a href="/ai-lab/#try">Try the live demos &rarr;</a></div>
+    <div class="labhead"><h3>From the AI Lab</h3><a href="/ai-lab/#ask">Try the new tools &rarr;</a></div>
     <div class="labgrid">
+      <a href="/ai-lab/#ask" class="isnew"><b>Ask FMW Next <em>New</em></b><span>AI vector search over briefings and known issues</span></a>
+      <a href="/ai-lab/#scan" class="isnew"><b>Upgrade readiness scanner <em>New</em></b><span>Paste config or code, get a WebLogic 26 plan</span></a>
       <a href="/ai-lab/"><b>AIOps platform</b><span>Self-built platform for IT operations</span></a>
       <a href="/ai-lab/"><b>Predictive failure detection</b><span>Anomaly models on WebLogic metrics</span></a>
       <a href="/ai-lab/"><b>Migration portfolio scoring</b><span>27 WebLogic and SOA apps classified with ML</span></a>
